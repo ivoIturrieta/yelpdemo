@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yelpdemo</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render "layouts/bootstrap" %>
+
+  <body>
+    <%= render "layouts/navbar" %>
+    <div class="container-fluid">
+    <%= yield %>
+  </div>
+  </body>
+</html>
