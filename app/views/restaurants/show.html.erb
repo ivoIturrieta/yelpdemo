@@ -6,12 +6,12 @@
       <%= @restaurant.name %>
     </h2>
 
-    <div class="star-rating" data-score: <%= @avg_rating %> ></div>
+    <div class="star-rating" data-score= <%= @avg_rating %> ></div>
     <p><%= "#{@reviews.length} reviews" %></p>
 
     <p>
       <strong>Address:</strong>
-      Adress
+      <%= @restaurant.adress %>
     </p>
 
     <p>
@@ -28,6 +28,14 @@
 
     <br>
     <br>
+
+    <iframe
+      width="230"
+      height="230"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDB9EcwtlVW9fp2FcDy1s95s5Vu8EwmIjU
+        &q=<%= @restaurant.adress.parameterize %>&zoom=14">
+    </iframe>
 
   </div>
 

@@ -1,10 +1,11 @@
-<%= form_for(@restaurant, :html => { multipart: true }) do |form| %>
-  <% if restaurant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+<%= form_for(@restaurant, :html => { multipart: true }) do |f| %>
+  <% if @restaurant.errors.any? %>
+    <div id="error-explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h4>
 
       <ul>
-      <% restaurant.errors.full_messages.each do |message| %>
+      <% @restaurant.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,31 +13,26 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :restaurant_name, class:"form-control" %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control", placeholder: "Panera Bread" %>
   </div>
-
   <div class="form-group">
-    <%= form.label :adress %>
-    <%= form.text_field :adress, id: :restaurant_adress, class:"form-control" %>
+    <%= f.label :address %><br>
+    <%= f.text_field :adress, class: "form-control", placeholder: "201 Brookline Avenue, Boston, MA 02215" %>
   </div>
-
   <div class="form-group">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :restaurant_phone, class:"form-control" %>
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone, class: "form-control", placeholder: "(617) 247-0174" %>
   </div>
-
   <div class="form-group">
-    <%= form.label :website %>
-    <%= form.text_field :website, id: :restaurant_website, class:"form-control" %>
+    <%= f.label :website %><br>
+    <%= f.text_field :website, class: "form-control", placeholder: "http://www.panerabread.com/" %>
   </div>
-
   <div class="form-group">
-    <%= form.label :image %>
-    <%= form.file_field :image, id: :restaurant_website, class:"form-control" %>
+    <%= f.label :image %><br>
+    <%= f.file_field :image, class: "form-control" %>
   </div>
-
   <div class="actions">
-    <%= form.submit class: "btn btn-primary"%>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
